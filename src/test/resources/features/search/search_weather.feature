@@ -23,7 +23,7 @@ Feature: As a User I want to go to Weather.com website and search for the weathe
 
     Examples:
       |abbreviation |location                                |city         |
-      |NY           |New York, NY, UNITED STATES OF AMERICA  |New York     |
+      |NYC          |New York, NY, UNITED STATES OF AMERICA  |New York     |
       |Chi          |Chicago, IL, UNITED STATES OF AMERICA   |Chicago      |
 
 

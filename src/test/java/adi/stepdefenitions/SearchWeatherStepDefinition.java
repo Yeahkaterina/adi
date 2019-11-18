@@ -11,6 +11,7 @@ import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SearchWeatherStepDefinition {
 
@@ -70,6 +71,7 @@ public class SearchWeatherStepDefinition {
 
     @And("I see selected cities in saved locations bar")
     public void iSeeSelectedCitiesInSavedLocationsBar(List<String> locations) {
-        Assert.assertEquals("Locations should be saved", locations, searchResultsSteps.getSavedLocations());
+        Assert.assertEquals("Locations should be saved", locations.stream().sorted().collect(Collectors.toList()),
+                searchResultsSteps.getSavedLocations());
     }
 }

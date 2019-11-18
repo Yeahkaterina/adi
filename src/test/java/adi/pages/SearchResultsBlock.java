@@ -20,7 +20,7 @@ public class SearchResultsBlock extends UIInteractionSteps {
 
     public void selectLocation(String location) {
         getResults().forEach(res -> {
-            if(res.equalsIgnoreCase(location)){
+            if(location.equalsIgnoreCase(res)){
                 find(By.linkText(location)).click();
             }
         });

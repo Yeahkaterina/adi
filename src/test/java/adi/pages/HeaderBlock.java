@@ -5,11 +5,13 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.core.steps.UIInteractionSteps;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class HeaderBlock extends UIInteractionSteps {
 
-    @FindBy(css = "input")
+    @FindBy(css = "input[aria-label='Location Search']")
     private WebElementFacade inputField;
 
     @FindBy(className = "styles__item__sCSPm")
@@ -34,8 +36,13 @@ public class HeaderBlock extends UIInteractionSteps {
     }
 
     public void selectCityFromTheDropdown(String city) {
-        resultsLinks.stream().findAny().filter(element -> element.getTextContent()
-                .contains(city)).get().click();
+        Optional<WebElementFacade> elem = resultsLinks.stream().filter(element -> element.getTextContent()
+                .contains(city)).findAny();
+        if(elem.isPresent()){
+            elem.get().click();
+        } else {
+            throw new NoSuchElementException();
+        }
     }
 
     public List<String> getResultsFromDropdown() {
@@ -44,7 +51,7 @@ public class HeaderBlock extends UIInteractionSteps {
     }
 
     public List<String> getLocations() {
-        return locationLinks.stream().map(WebElementFacade::getTextContent)
+        return locationLinks.stream().map(WebElementFacade::getTextContent).sorted()
                 .collect(Collectors.toList());
     }
 }
