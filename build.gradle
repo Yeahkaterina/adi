@@ -1,0 +1,54 @@
+defaultTasks 'clean','test','aggregate'
+
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.82")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+apply from: "$rootDir/gradle/libraries.gradle"
+
+group 'test.simplefw'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+configurations.all {
+    resolutionStrategy {
+        force "io.cucumber:cucumber-core:4.2.0"
+    }
+}
+
+dependencies {
+    compile libs.logback
+
+    testCompile libs.test.cucumber.java,
+            libs.test.cucumber.junit,
+            libs.test.serenity.core,
+            libs.test.serenity.junit,
+            libs.test.serenity.cucumber,
+            libs.test.junit,
+            libs.test.assertj
+}
+
+test {
+    testLogging.showStandardStreams = true
+    systemProperties System.getProperties()
+}
+
+gradle.startParameter.continueOnFailure = true
+
+test.finalizedBy(aggregate)

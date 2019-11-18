@@ -1,0 +1,9 @@
+[1116/220556.671:ERROR:file_io.cc(89)] ReadExactly: expected 36, observed 0
+[1116/230315.350:ERROR:file_io_win.cc(161)] CreateFile C:\Users\EKATER~1\AppData\Local\Temp\scoped_dir37676_1927324111\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
+[1116/230315.356:ERROR:file_io_win.cc(170)] CreateFile C:\Users\EKATER~1\AppData\Local\Temp\scoped_dir37676_1927324111\Crashpad\reports\17a63cc2-4d89-426e-b916-471ad9f1e6cd.dmp: The system cannot find the path specified. (0x3)
+[1116/230315.357:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
+[1117/131349.174:ERROR:file_io_win.cc(161)] CreateFile C:\Users\EKATER~1\AppData\Local\Temp\scoped_dir38964_572534835\Crashpad\settings.dat: The system cannot find the file specified. (0x2)
+[1117/165613.775:ERROR:file_io.cc(89)] ReadExactly: expected 36, observed 0
+[1117/195151.222:ERROR:file_io_win.cc(161)] CreateFile C:\Users\EKATER~1\AppData\Local\Temp\scoped_dir39960_869930423\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
+[1117/195151.240:ERROR:file_io_win.cc(170)] CreateFile C:\Users\EKATER~1\AppData\Local\Temp\scoped_dir39960_869930423\Crashpad\reports\9c73af9c-00ea-4e76-8a07-9cba23a388b8.dmp: The system cannot find the path specified. (0x3)
+[1117/195151.240:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
